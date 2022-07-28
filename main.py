@@ -1,35 +1,32 @@
-import GameBoard
+from GameBoard import GameBoard
+
+
+class Main:
+    def takeMove(ptag):
+        return list(map(int, input("Player " + str(ptag) + " make a move").split()))
+
+    def takeMove2(ptag, board):
+        return list(map(int, (board, input("Player " + str(ptag) + " make a move for board " + str(board)))))
+
+
 def main():
     test = GameBoard()
     win = False
-    counter = 1
+    counter = 0
     test.printboard()
-    position = takeMove(counter)
+    position = Main.takeMove(counter % 2 + 1)
     print(position)
-    move = test.playmove(position[0], position[1], counter)
-    while not move:
-        position = list(map(int, input("Please enter a valid move, that move is illegal").split()))
-        move = test.playmove(position[0], position[1], counter)
-    counter = 2
+    test.playmove(position[0], position[1], counter % 2 + 1)
+    test.printboard()
+    counter += 1
     while not win:
+        position = Main.takeMove2(counter % 2 + 1, position[1])
+        test.playmove(position[0], position[1], counter % 2 + 1)
         test.printboard()
-        if test.boardA[position[0]] == ("F" or "S"):
-            position = takeMove(counter)
-            print(position)
-            move = test.playmove(position[0], position[1], counter)
-            while not move:
-                position = input("Please enter a valid move, that move is illegal").split()
-                move = test.playmove(position[0], position[1], counter)
-            test.boardA[position].checkwin()
-            win = test.checkwin()
-        else:
-            position2 = takeMove2(counter, position[1])
-            move = test.playmove(position[1], position2, counter)
-            while not move:
-                position2 = input("Please enter a valid move, that move is illegal").split()
-                move = test.playmove(position[1], position2, counter)
-            test.boardA[position2].checkwin()
-            win = test.checkwin()
+        counter+=1
+        position = Main.takeMove2(counter % 2 + 1, position[1])
+        test.playmove(position[0], position[1], counter % 2 + 1)
+        test.printboard()
 
 
 if __name__ == '__main__':

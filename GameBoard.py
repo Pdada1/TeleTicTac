@@ -1,4 +1,4 @@
-import Miniboard
+from Miniboard import MiniBoard
 class GameBoard:
     boardA = []
 

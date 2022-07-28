@@ -52,11 +52,3 @@ class MiniBoard:
             if self.mboardA[3 * x] + self.mboardA[3 * x + 1] + self.mboardA[3 * x + 2] == 6:
                 return 2
             return False
-
-
-def takeMove(ptag):
-    return list(map(int, input("Player " + str(ptag) + " make a move").split()))
-
-
-def takeMove2(ptag, board):
-    return int(input("Player " + str(ptag) + " make a move for board "+str(board)))
