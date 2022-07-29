@@ -16,7 +16,7 @@ def main():
     test.printboard()
     position = Main.takeMove(counter % 2 + 1)
     while not test.checklegal(position[0],position[1]):
-        
+        position = Main.takeMove(counter % 2 + 1)
     test.playmove(position[0], position[1], counter % 2 + 1)
     test.printboard()
     counter += 1
