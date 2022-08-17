@@ -47,16 +47,16 @@ class GameBoard:
 
     def checkVertical(self):
         for x in range(0, 3):
-            if str(self.boardA[x]) + str(self.boardA[x + 3]) + str(self.boardA[x + 6]) == ("FFF"):
+            if str(self.boardA[x]) + str(self.boardA[x + 2]) + str(self.boardA[x + 5]) == ("FFF"):
                 return 1
-            if str(self.boardA[x]) + str(self.boardA[x + 3]) + str(self.boardA[x + 6]) == ("SSS"):
+            if str(self.boardA[x]) + str(self.boardA[x + 2]) + str(self.boardA[x + 5]) == ("SSS"):
                 return 2
             else:
                 return False
 
     def checkHorizontal(self):
         for x in range(0, 3):
-            if str(self.boardA[3 * x]) + str(self.boardA[3 * + 1]) + str(self.boardA[3 * x + 2]) == ("FFF"):
+            if str(self.boardA[3 * x]) + str(self.boardA[3 * x+1]) + str(self.boardA[3 * x + 2]) == ("FFF"):
                 return 1
             if str(self.boardA[3 * x]) + str(self.boardA[3 * x + 1]) + str(self.boardA[3 * x + 2]) == ("SSS"):
                 return 2

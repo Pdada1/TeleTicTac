@@ -21,34 +21,32 @@ class MiniBoard:
 
     def checkwin(self):
         if (self.checkDiagonal() == 1 or self.checkHorizontal() == 1 or self.checkVertical() == 1):
-            self.mboard = ["F"]
+            self.mboardA = ['F','F','F','F','F','F','F','F','F']
             return True
         if (self.checkDiagonal() == 2 or self.checkHorizontal() == 2 or self.checkVertical() == 2):
-            self.mboard = ["S"]
+            self.mboardA = ['S','S','S','S','S','S','S','S','S']
             return True
         return False
 
     def checkDiagonal(self):
-        if self.mboardA[0] + self.mboardA[4] + self.mboardA[8] == 3 or self.mboardA[2] + self.mboardA[4] + self.mboardA[
-            6] == 3:
+        if str(self.mboardA[0]) + str(self.mboardA[4]) + str(self.mboardA[8]) == "111" or str(self.mboardA[2]) + str(self.mboardA[4]) + str(self.mboardA[6]) == "111":
             return 1
-        if self.mboardA[0] + self.mboardA[4] + self.mboardA[8] == 6 or self.mboardA[2] + self.mboardA[4] + self.mboardA[
-            6] == 6:
+        if str(self.mboardA[0]) + str(self.mboardA[4]) + str(self.mboardA[8]) == "222" or str(self.mboardA[2]) + str(self.mboardA[4]) + str(self.mboardA[6]) == "222":
             return 2
         return False
 
     def checkVertical(self):
         for x in range(0, 3):
-            if self.mboardA[x] + self.mboardA[x + 3] + self.mboardA[x + 6] == 3:
+            if str(self.mboardA[x]) + str(self.mboardA[x + 3]) + str(self.mboardA[x + 6]) == "111":
                 return 1
-            if self.mboardA[x] + self.mboardA[x + 3] + self.mboardA[x + 6] == 6:
+            if str(self.mboardA[x]) + str(self.mboardA[x + 3]) + str(self.mboardA[x + 6]) == "222":
                 return 2
-            return False
+        return False
 
     def checkHorizontal(self):
         for x in range(0, 3):
-            if self.mboardA[3 * x] + self.mboardA[3 * + 1] + self.mboardA[3 * x + 2] == 3:
+            if str(self.mboardA[3 * x]) + str(self.mboardA[3 * + 1]) + str(self.mboardA[3 * x + 2]) == "111":
                 return 1
-            if self.mboardA[3 * x] + self.mboardA[3 * x + 1] + self.mboardA[3 * x + 2] == 6:
+            if str(self.mboardA[3 * x]) + str(self.mboardA[3 * + 1]) + str(self.mboardA[3 * x + 2]) == "222":
                 return 2
-            return False
+        return False
