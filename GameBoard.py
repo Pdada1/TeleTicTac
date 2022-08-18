@@ -36,29 +36,27 @@ class GameBoard:
             return True
 
     def checkDiagonal(self):
-        if str(self.boardA[0]) + str(self.boardA[4]) + str(self.boardA[8]) == ("FFF") or str(self.boardA[2]) + str(self.boardA[4]) + str(self.boardA[
-            6]) == ("FFF"):
+        if str(self.boardA[0].getv(0)) + str(self.boardA[4].getv(0)) + str(self.boardA[8].getv(8)) == "FFF" or str(self.boardA[2].getv(2)) + str(self.boardA[4].getv(4)) + str(self.boardA[6].getv(6)) == "FFF":
             return 1
-        if str(self.boardA[0]) + str(self.boardA[4]) + str(self.boardA[8]) == ("SSS") or str(self.boardA[2]) + str(self.boardA[4]) + str(self.boardA[
-            6]) == ("SSS"):
+        if str(self.boardA[0].getv(0)) + str(self.boardA[4].getv(0)) + str(self.boardA[8].getv(8)) == "SSS" or str(self.boardA[2].getv(2)) + str(self.boardA[4].getv(4)) + str(self.boardA[6].getv(6)) == "SSS":
             return 2
         else:
             return False
 
     def checkVertical(self):
         for x in range(0, 3):
-            if str(self.boardA[x]) + str(self.boardA[x + 2]) + str(self.boardA[x + 5]) == ("FFF"):
+            if str(self.boardA[x].getv(0)) + str(self.boardA[x + 2].getv(0)) + str(self.boardA[x + 5].getv(0)) == "FFF":
                 return 1
-            if str(self.boardA[x]) + str(self.boardA[x + 2]) + str(self.boardA[x + 5]) == ("SSS"):
+            if str(self.boardA[x].getv(0)) + str(self.boardA[x + 2].getv(0)) + str(self.boardA[x + 5].getv(0)) == "SSS":
                 return 2
             else:
                 return False
 
     def checkHorizontal(self):
         for x in range(0, 3):
-            if str(self.boardA[3 * x]) + str(self.boardA[3 * x+1]) + str(self.boardA[3 * x + 2]) == ("FFF"):
+            if str(self.boardA[3 * x].getv(0)) + str(self.boardA[3 * x+1].getv(0)) + str(self.boardA[3 * x + 2].getv(0)) == "FFF":
                 return 1
-            if str(self.boardA[3 * x]) + str(self.boardA[3 * x + 1]) + str(self.boardA[3 * x + 2]) == ("SSS"):
+            if str(self.boardA[3 * x].getv(0)) + str(self.boardA[3 * x+1].getv(0)) + str(self.boardA[3 * x + 2].getv(0)) == "SSS":
                 return 2
             else:
                 return False
